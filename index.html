@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kautuhal Lab: where curious kids build real things</title>
+<meta name="description" content="Hands-on robotics, coding and AI for school students, in small in-person batches in Kolkata. Coming soon from Whitebox Academy.">
+<meta property="og:title" content="Kautuhal Lab">
+<meta property="og:description" content="Where curious kids build real things. Hands-on robotics, coding and AI in Kolkata, coming soon.">
+<meta property="og:url" content="https://kautuhal.whiteboxacademy.in/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://kautuhal.whiteboxacademy.in/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <svg aria-hidden="true" viewBox="0 0 38 38"><path d="M19 10V2" stroke="#14161a" stroke-width="2"/><rect x="3" y="10" width="32" height="26" rx="9" fill="#ffd23f" stroke="#14161a" stroke-width="2"/><circle cx="13" cy="21" r="3" fill="#14161a"/><circle cx="25" cy="21" r="3" fill="#14161a"/></svg>
+      <span><b>Kautuhal Lab</b><small>by Whitebox Academy</small></span>
+    </a>
+    <a class="home-link" href="https://whiteboxacademy.in">whiteboxacademy.in ↗</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="pills"><span class="hot">COMING SOON</span><span>IN PERSON · KOLKATA</span></div>
+        <h1>Where curious kids<br>build <span>real things.</span></h1>
+        <p class="lede">Hands-on robotics, coding and AI for school students, in small in-person batches in Kolkata.</p>
+        <p class="word"><span lang="bn">কৌতূহল</span><span>kautuhal (n.) · curiosity</span></p>
+      </div>
+
+      <svg class="robot" aria-hidden="true" viewBox="-14 -16 340 378" stroke="#14161a" stroke-width="3">
+        <rect x="147" y="0" width="6" height="40" rx="3" fill="#14161a" stroke="none"/>
+        <circle cx="150" cy="0" r="12" fill="#ff6a3d" stroke-width="2.5"/>
+        <rect x="58" y="46" width="200" height="140" rx="28" fill="#14161a"/>
+        <rect x="50" y="38" width="200" height="140" rx="28" fill="#ffd23f"/>
+        <circle cx="106" cy="98" r="18" fill="#fff"/>
+        <circle cx="107" cy="99" r="7" fill="#14161a" stroke="none"/>
+        <circle cx="194" cy="98" r="18" fill="#fff"/>
+        <circle cx="195" cy="99" r="7" fill="#14161a" stroke="none"/>
+        <path d="M128 136a22 14 0 0 0 44 0" fill="none"/>
+        <rect x="18" y="220" width="52" height="16" rx="8" fill="#7cc6fe" transform="rotate(-24 44 228)"/>
+        <rect x="230" y="220" width="52" height="16" rx="8" fill="#7cc6fe" transform="rotate(24 256 228)"/>
+        <rect x="78" y="204" width="160" height="120" rx="20" fill="#14161a"/>
+        <rect x="70" y="196" width="160" height="120" rx="20" fill="#fff"/>
+        <rect x="96" y="222" width="26" height="26" rx="6" fill="#ff6a3d" stroke-width="2.5"/>
+        <circle cx="147" cy="235" r="13" fill="#7cc6fe" stroke-width="2.5"/>
+        <rect x="172" y="222" width="26" height="26" rx="6" fill="#ffd23f" stroke-width="2.5" transform="rotate(45 185 235)"/>
+        <rect x="96" y="268" width="102" height="8" rx="4" fill="#e1e4e8" stroke-width="2"/>
+        <circle cx="112" cy="336" r="20" fill="#14161a" stroke="none"/>
+        <circle cx="188" cy="336" r="20" fill="#14161a" stroke="none"/>
+        <g transform="rotate(-8 22 58)" stroke-width="2">
+          <rect x="-8" y="40" width="60" height="36" rx="14" fill="#fff"/>
+          <text x="22" y="64" text-anchor="middle" fill="#14161a" stroke="none">why?</text>
+        </g>
+        <g transform="rotate(7 276 178)" stroke-width="2">
+          <rect x="246" y="160" width="60" height="36" rx="14" fill="#fff"/>
+          <text x="276" y="184" text-anchor="middle" fill="#14161a" stroke="none">how?</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="waitlist" id="waitlist">
+      <div class="card">
+        <div class="card-copy">
+          <h2>Join the waitlist</h2>
+          <p>Be the first to hear about our first batches and the holiday camp. We’ll only contact you about Kautuhal Lab.</p>
+          <p class="small">First up: a holiday camp. Dates coming soon.</p>
+        </div>
+
+        <form id="waitlist-form" novalidate>
+          <div class="field">
+            <label for="parent-name">Parent’s name</label>
+            <input id="parent-name" name="parent_name" type="text" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="contact">WhatsApp number or email</label>
+            <input id="contact" name="contact" type="text" autocomplete="email" required aria-describedby="contact-error">
+            <span class="error" id="contact-error" hidden></span>
+          </div>
+          <div class="field">
+            <label for="child-class">Your child’s class</label>
+            <select id="child-class" name="child_class">
+              <option value="">Choose a class</option>
+              <option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option>
+              <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9 or above</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="area">Area in Kolkata <span>(optional)</span></label>
+            <input id="area" name="area" type="text" placeholder="e.g. Salt Lake">
+          </div>
+          <div class="wide">
+            <label class="consent">
+              <input id="consent" name="consent" type="checkbox" value="yes" required aria-describedby="consent-error">
+              <span>I’m the parent or guardian, and I’m happy to be contacted about Kautuhal Lab.</span>
+            </label>
+            <span class="error" id="consent-error" hidden></span>
+          </div>
+          <p class="notice wide" id="form-notice" role="status" hidden></p>
+          <button class="submit wide" type="submit">Join the waitlist</button>
+          <p class="privacy wide">We collect only what’s on this form, and we use it only to contact you about Kautuhal Lab. To have your details deleted, reply to any message from us and ask.</p>
+        </form>
+
+        <div class="thanks" id="waitlist-thanks" role="status" tabindex="-1" hidden>
+          <strong>You’re on the list!</strong>
+          <span>We’ll message you as soon as batch dates and the venue are confirmed.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="activities">
+      <h2>What your child will do</h2>
+      <div class="activity-grid">
+        <div class="activity"><i aria-hidden="true"></i><h3>Build robots and gadgets</h3><p>Circuits, sensors and motors, built by their own hands.</p></div>
+        <div class="activity"><i aria-hidden="true"></i><h3>Code their own games</h3><p>From Scratch blocks to real Python, step by step.</p></div>
+        <div class="activity"><i aria-hidden="true"></i><h3>Teach a computer to see</h3><p>Simple AI and computer vision projects that respond to them.</p></div>
+        <div class="activity"><i aria-hidden="true"></i><h3>Think like an engineer</h3><p>Problem, sketch, build, test, improve, all in their own notebook.</p></div>
+      </div>
+    </section>
+
+    <section class="parents" aria-label="For parents">
+      <div>
+        <div><h3>Small batches</h3><p>So every child gets hands-on time and attention.</p></div>
+        <div><h3>Showcase days</h3><p>Parents get to see what their child built.</p></div>
+        <!-- Add once the founders confirm it, and make .parents three columns:
+        <div><h3>Safety first</h3><p>Verified instructors, two adults in every session.</p></div>
+        -->
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Kautuhal Lab is a program by <strong><a href="https://whiteboxacademy.in">Whitebox Academy</a></strong>. For young and curious minds.</span>
+    <nav aria-label="Footer"><a href="https://www.youtube.com/@WhiteboxAcademy">YouTube</a></nav>
+  </div>
+</footer>
+</body>
+</html>
