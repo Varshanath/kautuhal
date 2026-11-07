@@ -1,12 +1,13 @@
-// TODO: paste the waitlist URL here (Google Form, Tally or similar). Until it's
-// set, nothing is sent or stored, and submitting says the waitlist isn't open.
-// Fields sent: parent_name, contact, child_class, area, consent.
-const WAITLIST_ENDPOINT = "";
+// Waitlist API expects JSON: name, email, standard, area, consent.
+const WAITLIST_ENDPOINT = "https://kautuhal-backend.onrender.com/jointhewaitlist/";
 
 const form = document.querySelector("#waitlist-form");
 const thanks = document.querySelector("#waitlist-thanks");
 const notice = document.querySelector("#form-notice");
-const contact = form.elements.contact;
+const parentName = form.elements.name;
+const email = form.elements.email;
+const standard = form.elements.standard;
+const area = form.elements.area;
 const consent = form.elements.consent;
 
 function setError(field, message) {
@@ -16,12 +17,14 @@ function setError(field, message) {
   field.setAttribute("aria-invalid", String(Boolean(message)));
 }
 
-function contactError() {
-  const value = contact.value.trim();
-  if (!value) return "Please add a WhatsApp number or email so we can reach you.";
-  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  const isPhone = /^[+\d][\d\s()-]*$/.test(value) && value.replace(/\D/g, "").length >= 10;
-  return isEmail || isPhone ? "" : "Please enter a valid WhatsApp number or email.";
+function requiredError(field, label) {
+  return field.value.trim() ? "" : `Please add ${label}.`;
+}
+
+function emailError() {
+  const value = email.value.trim();
+  if (!value) return "Please add your email address so we can reach you.";
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Please enter a valid email address.";
 }
 
 function consentError() {
@@ -33,15 +36,25 @@ function showNotice(message) {
   notice.hidden = !message;
 }
 
-contact.addEventListener("input", () => {
-  if (contact.getAttribute("aria-invalid") === "true") setError(contact, contactError());
+parentName.addEventListener("input", () => {
+  if (parentName.getAttribute("aria-invalid") === "true") {
+    setError(parentName, requiredError(parentName, "your name"));
+  }
+});
+email.addEventListener("input", () => {
+  if (email.getAttribute("aria-invalid") === "true") setError(email, emailError());
+});
+standard.addEventListener("change", () => {
+  setError(standard, requiredError(standard, "your child’s class"));
 });
 consent.addEventListener("change", () => setError(consent, consentError()));
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   showNotice("");
-  setError(contact, contactError());
+  setError(parentName, requiredError(parentName, "your name"));
+  setError(email, emailError());
+  setError(standard, requiredError(standard, "your child’s class"));
   setError(consent, consentError());
 
   const invalid = form.querySelector('[aria-invalid="true"]');
@@ -50,15 +63,21 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  if (!WAITLIST_ENDPOINT) {
-    showNotice("The waitlist isn’t open yet, so your details weren’t sent. Please check back soon.");
-    return;
-  }
-
   const button = form.querySelector("button");
   button.disabled = true;
   try {
-    const response = await fetch(WAITLIST_ENDPOINT, { method: "POST", body: new FormData(form) });
+    const payload = {
+      name: parentName.value.trim(),
+      email: email.value.trim(),
+      standard: standard.value,
+      area: area.value.trim(),
+      consent: consent.checked,
+    };
+    const response = await fetch(WAITLIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
     if (!response.ok) throw new Error(`Waitlist returned ${response.status}`);
     form.hidden = true;
     thanks.hidden = false;

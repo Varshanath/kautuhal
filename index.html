@@ -78,20 +78,22 @@
         <form id="waitlist-form" novalidate>
           <div class="field">
             <label for="parent-name">Parent’s name</label>
-            <input id="parent-name" name="parent_name" type="text" autocomplete="name">
+            <input id="parent-name" name="name" type="text" autocomplete="name" required aria-describedby="parent-name-error">
+            <span class="error" id="parent-name-error" hidden></span>
           </div>
           <div class="field">
-            <label for="contact">WhatsApp number or email</label>
-            <input id="contact" name="contact" type="text" autocomplete="email" required aria-describedby="contact-error">
+            <label for="contact">Email address</label>
+            <input id="contact" name="email" type="email" autocomplete="email" required aria-describedby="contact-error">
             <span class="error" id="contact-error" hidden></span>
           </div>
           <div class="field">
             <label for="child-class">Your child’s class</label>
-            <select id="child-class" name="child_class">
+            <select id="child-class" name="standard" required aria-describedby="child-class-error">
               <option value="">Choose a class</option>
-              <option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option>
-              <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9 or above</option>
+              <option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option>
+              <option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9+">Class 9 or above</option>
             </select>
+            <span class="error" id="child-class-error" hidden></span>
           </div>
           <div class="field">
             <label for="area">Area in Kolkata <span>(optional)</span></label>
